@@ -1,0 +1,54 @@
+[
+  {
+    "id": "email_001",
+    "from": "marie.dupont@exemple.fr",
+    "subject": "Facture n°2024-0142 - 2 450,00 EUR",
+    "body": "Bonjour,\n\nVeuillez trouver ci-joint notre facture n°2024-0142 d'un montant de 2 450,00 EUR TTC (TVA 20%) pour la prestation de conseil réalisée en mars 2024.\n\nDate d'échéance : 30 avril 2024.\n\nCordialement,\nMarie Dupont\nDupont Consulting",
+    "received_at": "2024-03-28T09:15:00",
+    "attachments": [
+      {
+        "filename": "facture_2024-0142.pdf",
+        "content_type": "application/pdf",
+        "text": "FACTURE N° 2024-0142\nDate : 28/03/2024\nClient : Dougs SAS\nMontant HT : 2 041,67 EUR\nTVA 20% : 408,33 EUR\nTotal TTC : 2 450,00 EUR\nÉchéance : 30/04/2024"
+      }
+    ]
+  },
+  {
+    "id": "email_002",
+    "from": "jean.martin@startup.io",
+    "subject": "Demande de devis - Mission comptabilité annuelle",
+    "body": "Bonjour,\n\nNous sommes une startup SAS créée en 2023. Nous recherchons un comptable pour gérer notre comptabilité annuelle (bilan, liasse fiscale, TVA mensuelle).\n\nNotre CA est d'environ 120 000 EUR par an.\n\nPourriez-vous nous faire parvenir une proposition tarifaire ?\n\nMerci d'avance,\nJean Martin\nStartup.io",
+    "received_at": "2024-03-28T10:30:00",
+    "attachments": []
+  },
+  {
+    "id": "email_003",
+    "from": "sophie.bernard@artisan.com",
+    "subject": "Question TVA auto-entrepreneur",
+    "body": "Bonjour,\n\nJe suis auto-entrepreneur depuis 2022 et je viens de dépasser le seuil de 77 700 EUR de CA. Est-ce que je dois maintenant facturer la TVA ? À partir de quand ?\n\nMerci pour votre aide.\n\nSophie Bernard",
+    "received_at": "2024-03-28T11:00:00",
+    "attachments": []
+  },
+  {
+    "id": "email_004",
+    "from": "pierre.leclerc@holding.fr",
+    "subject": "URGENT - Facture impayée 85 000 EUR",
+    "body": "Bonjour,\n\nMalgré plusieurs relances, notre facture n°INV-2024-001 d'un montant de 85 000 EUR HT (TVA 20%) reste impayée depuis 90 jours.\n\nNous envisageons une procédure de recouvrement. Que nous conseillez-vous ?\n\nCordiales salutations,\nPierre Leclerc\nHolding Leclerc",
+    "received_at": "2024-03-28T14:00:00",
+    "attachments": []
+  },
+  {
+    "id": "email_005",
+    "from": "clara.petit@artisan.fr",
+    "subject": "Envoi relevé bancaire mars 2024",
+    "body": "Bonjour,\n\nVeuillez trouver ci-joint mon relevé bancaire du mois de mars 2024 pour la mise à jour de ma comptabilité.\n\nBonne journée,\nClara Petit",
+    "received_at": "2024-03-28T15:30:00",
+    "attachments": [
+      {
+        "filename": "releve_mars_2024.pdf",
+        "content_type": "application/pdf",
+        "text": "RELEVÉ DE COMPTE\nIBAN : FR76 1234 5678 9012 3456 7890 123\nPériode : 01/03/2024 - 31/03/2024\nSolde initial : 12 450,00 EUR\nTotal crédits : 8 200,00 EUR\nTotal débits : 3 150,00 EUR\nSolde final : 17 500,00 EUR"
+      }
+    ]
+  }
+]

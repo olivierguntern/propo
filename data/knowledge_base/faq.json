@@ -1,0 +1,22 @@
+[
+  {
+    "id": "faq_tva_auto_entrepreneur",
+    "title": "TVA et auto-entrepreneur",
+    "content": "Un auto-entrepreneur en franchise de base de TVA ne facture pas la TVA et ne la récupère pas. Il doit mentionner sur ses factures 'TVA non applicable, art. 293 B du CGI'. Cette franchise s'arrête dès le dépassement des seuils."
+  },
+  {
+    "id": "faq_cotisations_ae",
+    "title": "Cotisations auto-entrepreneur",
+    "content": "Les taux de cotisations sociales pour un auto-entrepreneur sont : 12.3% pour la vente de marchandises, 21.2% pour les prestations de services BIC, 21.1% pour les professions libérales relevant du CIPAV."
+  },
+  {
+    "id": "faq_bilan_annuel",
+    "title": "Bilan annuel - quand le déposer ?",
+    "content": "Pour une SARL ou SAS, le bilan doit être approuvé en assemblée générale dans les 6 mois suivant la clôture de l'exercice, puis déposé au greffe du tribunal de commerce dans le mois suivant l'approbation."
+  },
+  {
+    "id": "faq_compte_courant_associe",
+    "title": "Compte courant d'associé",
+    "content": "Un associé peut prêter de l'argent à sa société via un compte courant. Ce prêt peut être rémunéré à un taux d'intérêt fiscalement déductible pour la société dans la limite du taux légal fixé par arrêté."
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "tpl_facture_recue",
+    "category": "facture",
+    "template": "Bonjour {client_name},\n\nNous avons bien reçu votre facture du {date_document} d'un montant de {montant} {devise}.\n\nNous la traitons dans les meilleurs délais conformément à nos délais contractuels.\n\nCordialement,\nL'équipe Dougs"
+  },
+  {
+    "id": "tpl_devis_reponse",
+    "category": "devis",
+    "template": "Bonjour {client_name},\n\nMerci pour votre demande de devis. Nous revenons vers vous dans les 48h avec une proposition adaptée à vos besoins.\n\nCordialement,\nL'équipe Dougs"
+  },
+  {
+    "id": "tpl_document_confirme",
+    "category": "document_upload",
+    "template": "Bonjour {client_name},\n\nNous confirmons la bonne réception de votre document. Il a été classé dans votre dossier.\n\nCordialement,\nL'équipe Dougs"
+  },
+  {
+    "id": "tpl_escalade",
+    "category": "escalate",
+    "template": "Bonjour {client_name},\n\nNous avons bien reçu votre message. En raison de la nature de votre demande, un comptable de notre équipe vous recontactera dans les plus brefs délais.\n\nCordialement,\nL'équipe Dougs"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "tva_standard",
+    "title": "TVA taux standard",
+    "content": "Le taux de TVA standard en France est de 20%. Il s'applique à la majorité des biens et services. Les taux réduits sont 10% (restauration, travaux), 5.5% (alimentaire, livres) et 0% (exportations)."
+  },
+  {
+    "id": "delai_paiement",
+    "title": "Délais de paiement",
+    "content": "Selon la loi LME, le délai de paiement entre professionnels ne peut dépasser 60 jours après émission de la facture, ou 45 jours fin de mois. Toute clause dérogatoire doit être explicitement prévue dans les CGV."
+  },
+  {
+    "id": "mentions_obligatoires_facture",
+    "title": "Mentions obligatoires sur une facture",
+    "content": "Une facture doit contenir : numéro de facture, date d'émission, identité du vendeur (SIRET, adresse), identité de l'acheteur, désignation des produits/services, quantité, prix unitaire HT, taux de TVA, montant HT, montant TVA, montant TTC, conditions de paiement."
+  },
+  {
+    "id": "note_de_frais",
+    "title": "Notes de frais",
+    "content": "Les notes de frais doivent être justifiées par un reçu ou une facture. Les indemnités kilométriques sont calculées selon le barème fiscal en vigueur. Les repas d'affaires sont déductibles à 100% s'ils ont un objet professionnel prouvé."
+  },
+  {
+    "id": "devis_validite",
+    "title": "Validité d'un devis",
+    "content": "Un devis est valable pendant la durée mentionnée, généralement 30 jours. Il devient contrat dès acceptation écrite du client. Le devis signé engage les deux parties."
+  },
+  {
+    "id": "micro_entreprise_seuils",
+    "title": "Seuils micro-entreprise 2024",
+    "content": "Seuils de chiffre d'affaires pour la micro-entreprise en 2024 : 188 700 € pour les activités de vente de marchandises, 77 700 € pour les prestations de services BIC et les professions libérales BNC."
+  }
+]

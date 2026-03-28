@@ -4,10 +4,11 @@ Validation structurée = PAS de LLM ici.
 """
 from __future__ import annotations
 
+import os
 from datetime import date, datetime
 from typing import Literal, Optional
 
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field
 
 
 class Attachment(BaseModel):
@@ -39,7 +40,7 @@ class Classification(BaseModel):
 
     @property
     def needs_human_review(self) -> bool:
-        threshold = float(__import__("os").getenv("CONFIDENCE_THRESHOLD", "0.70"))
+        threshold = float(os.getenv("CONFIDENCE_THRESHOLD", "0.70"))
         return self.confidence < threshold
 
 

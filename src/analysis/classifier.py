@@ -11,13 +11,24 @@ Pourquoi ce mix ?
 - Le LLM gère la nuance et les cas complexes.
 - On évite des appels LLM inutiles et coûteux.
 """
-import json
+import logging
 import os
-import re
 
 import anthropic
 
 from src.models import Classification
+from src.utils import normalize_literal, safe_float, safe_parse_json, with_retry
+
+_logger = logging.getLogger("agent")
+
+_CATEGORY_VALUES = (
+    "facture",
+    "devis",
+    "question_comptable",
+    "document_upload",
+    "relance",
+    "autre",
+)
 
 _KEYWORD_RULES: dict[str, list[str]] = {
     "facture": ["facture", "invoice", "règlement", "paiement dû", "à payer"],
@@ -58,9 +69,24 @@ def _apply_keyword_rules(text: str) -> Classification | None:
     )
 
 
+@with_retry(max_attempts=3, base_delay=2.0)
+def _call_llm(email_text: str) -> str:
+    """Appel LLM isolé pour permettre le retry."""
+    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    model = os.getenv("CLAUDE_MODEL", "claude-sonnet-4-6")
+    message = client.messages.create(
+        model=model,
+        max_tokens=256,
+        system=_SYSTEM_PROMPT,
+        messages=[{"role": "user", "content": email_text[:3000]}],
+    )
+    return message.content[0].text.strip()
+
+
 def classify_email(email_text: str) -> Classification:
     """
     Classe un email. Essaie d'abord les règles, puis le LLM si nécessaire.
+    En cas d'échec LLM, retourne confidence=0 → escalade automatique.
     """
     # Tente les règles métier en premier
     rule_result = _apply_keyword_rules(email_text)
@@ -68,30 +94,30 @@ def classify_email(email_text: str) -> Classification:
         return rule_result
 
     # Fallback LLM
-    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
-    model = os.getenv("CLAUDE_MODEL", "claude-sonnet-4-6")
+    try:
+        raw = _call_llm(email_text)
+    except Exception as exc:
+        _logger.error("Classification LLM failed after retries: %s", exc)
+        return Classification(
+            category="autre",
+            confidence=0.0,
+            reasoning=f"Erreur LLM ({type(exc).__name__}) → escalade humaine",
+        )
 
-    message = client.messages.create(
-        model=model,
-        max_tokens=256,
-        system=_SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": email_text[:3000]}],
-    )
-
-    raw = message.content[0].text.strip()
-
-    # Sécurité : extraction JSON robuste même si le LLM ajoute du bruit
-    json_match = re.search(r"\{.*\}", raw, re.DOTALL)
-    if not json_match:
+    data = safe_parse_json(raw)
+    if data is None:
+        _logger.warning("Classification: JSON unparseable → escalade. raw=%r", raw[:100])
         return Classification(
             category="autre",
             confidence=0.0,
             reasoning="Réponse LLM non parseable → escalade humaine",
         )
 
-    data = json.loads(json_match.group())
+    category = normalize_literal(data.get("category"), _CATEGORY_VALUES, "autre")
+    confidence = safe_float(data.get("confidence"), default=0.0)
+
     return Classification(
-        category=data.get("category", "autre"),
-        confidence=float(data.get("confidence", 0.5)),
-        reasoning=data.get("reasoning", ""),
+        category=category,
+        confidence=confidence,
+        reasoning=data.get("reasoning") or "",
     )
